@@ -34,6 +34,7 @@ Serialize as json if Content-Type matched.
 Defalut allows to searialize many variety of json type such as patch+json, hal+json.
 
 Options:
+
 | key | description | default |
 |-----|-------------|---------|
 | :content_type | To be compared with Content-Type using === | /application\/(.*\+)?json/ |
