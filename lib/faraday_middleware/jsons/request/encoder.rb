@@ -4,7 +4,7 @@ module FaradayMiddleware::Jsons
       super(app)
 
       @pretty       = options[:pretty]       || false
-      @content_type = options[:content_type] || %r!^application/(.*+)json!
+      @content_type = options[:content_type] || %r!^application/(.*\+)?json!
     end
 
     def call(env)

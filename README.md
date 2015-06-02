@@ -1,11 +1,11 @@
-# Faraday::Middleware::Jsons
+# FaradayMiddleware::Jsons
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'faraday-middleware-jsons'
+gem 'faraday_middleware-jsons'
 ```
 
 And then execute:
@@ -14,11 +14,30 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install faraday-middleware-jsons
+    $ gem install faraday_middleware-jsons
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "faraday_middleware/jsons"
+
+Faraday.new "http://example.com/api" do |conn|
+  conn.request :jsons, content_type: /application\/json/, pretty: true
+end
+```
+
+### Request Middleware
+
+#### :jsons
+
+Serialize as json if Content-Type matched.
+Defalut allows to searialize many variety of json type such as patch+json, hal+json.
+
+Options:
+| key | description | default |
+|-----|-------------|---------|
+| :content_type | To be compared with Content-Type using === | /application\/(.*\+)?json/ |
+| :pretty       | To be passed to MultiJson | false |
 
 ## Contributing
 
