@@ -5,7 +5,7 @@ module FaradayMiddleware
   module Jsons
     # basic json support
     require "faraday_middleware/jsons/request/encoder"
-    require "faraday_middleware/jsons/response/json"
+    #require "faraday_middleware/jsons/response/json"
 
     Faraday::Request.register_middleware(
       jsons: -> { ::FaradayMiddleware::Jsons::Encoder }

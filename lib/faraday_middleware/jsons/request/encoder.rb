@@ -11,7 +11,7 @@ module FaradayMiddleware::Jsons
       content_type = env[:request_headers]["Content-Type"]
       mime_type = content_type.to_s.split(";").first
 
-      if has_body?(env) && match_mime_type?
+      if has_body?(env) && match_content_type?(env)
         env[:body] = MultiJson.dump(env[:body], pretty: @pretty)
       end
 
