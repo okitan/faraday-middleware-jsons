@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/okitan/faraday_middleware-jsons.svg?branch=master)](https://travis-ci.org/okitan/faraday_middleware-jsons)
 
+Faraday Middleware coping with variety of json (patch, hal, etc).
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -44,7 +46,7 @@ Options:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/faraday-middleware-jsons/fork )
+1. Fork it ( https://github.com/okitan/faraday-middleware-jsons/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
