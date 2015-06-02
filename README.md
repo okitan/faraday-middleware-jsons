@@ -1,5 +1,7 @@
 # FaradayMiddleware::Jsons
 
+[![Build Status](https://travis-ci.org/okitan/faraday_middleware-jsons.svg?branch=master)](https://travis-ci.org/okitan/faraday_middleware-jsons)
+
 ## Installation
 
 Add this line to your application's Gemfile:
