@@ -32,7 +32,7 @@ end
 
 ### Request Middleware
 
-#### :jsons
+#### jsons
 
 Serialize as json if Content-Type matched.
 Defalut allows to searialize many variety of json type such as patch+json, hal+json.
@@ -41,8 +41,23 @@ Options:
 
 | key | description | default |
 |-----|-------------|---------|
-| :content_type | To be compared with Content-Type using === | /application\/(.*\+)?json/ |
+| :content_type | To be compared with Content-Type using === | /^application\/(.*\+)?json/ |
 | :pretty       | To be passed to MultiJson | false |
+
+### Response Middleware
+
+#### jsons
+
+Parse json if Content-Type matched.
+Defalut allows to load many variety of json type such as patch+json, hal+json.
+
+Options:
+
+| key | description | default |
+|-----|-------------|---------|
+| :content_type | To be compared with Content-Type using === | /^application\/(.*\+)?json/ |
+| :symbolize_keys | To be passed to MultiJson | false |
+| :raise_error | When parse json failed it raise error. If this is false, body ramains as is | false |
 
 ## Contributing
 
