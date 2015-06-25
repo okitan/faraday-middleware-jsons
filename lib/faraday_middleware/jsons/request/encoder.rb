@@ -3,13 +3,14 @@ module FaradayMiddleware::Jsons
     def initialize(app, options = {})
       super(app)
 
-      @pretty       = options[:pretty]       || false
-      @content_type = options[:content_type] || %r!^application/(.*\+)?json!
+      @pretty       = options.delete(:pretty)       || false
+      @content_type = options.delete(:content_type) || %r!^application/(.*\+)?json!
+      @options      = options
     end
 
     def call(env)
       if has_body?(env) && match_content_type?(env)
-        env[:body] = MultiJson.dump(env[:body], pretty: @pretty)
+        env[:body] = MultiJson.dump(env[:body], @options.merge(pretty: @pretty))
       end
 
       @app.call(env)
