@@ -10,7 +10,9 @@ module FaradayMiddleware::Jsons
 
     def call(env)
       if has_body?(env) && match_content_type?(env)
-        env[:body] = MultiJson.dump(env[:body], @options.merge(pretty: @pretty))
+        # do not encode multiple times when the same middleware is decrared
+        # unicode string is valid for json (but escaping is also skipped...)
+        env[:body] = MultiJson.dump(env[:body], @options.merge(pretty: @pretty)) unless env[:body].is_a?(String)
       end
 
       @app.call(env)
