@@ -28,6 +28,18 @@ RSpec.describe FaradayMiddleware::Jsons::Encoder do
     end
   end
 
+  context "when body" do
+    context "is nil" do
+      before do
+        @response = connection.post("/", nil)
+      end
+
+      it "works" do
+        expect(@response.body).to eq("null")
+      end
+    end
+  end
+
   context "when content_type:" do
     %w[ application/patch+json application/hal+json ].each do |type|
       context "is #{type}" do
